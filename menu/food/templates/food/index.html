@@ -1,3 +1,4 @@
+{% extends "food/base.html" %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,50 +8,10 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>This is just a template</h1>
-    {% for item in item_list %}
-    <ul>
-      <li>
-        <a href="{% url 'food:detail' item.id %}">
-          {{ item.id }} -- {{ item.item_name }}</a
-        >
-      </li>
-    </ul>
-    {%endfor%} {% comment %} {% block body %} {% for item in item_list %}
-    <div class="row m-5">
-      <div class="col-md-3 offset-md-2">
-        <img class="card" height="150px" src="{‌{ item.item_image }}" />
-      </div>
-      <div class="col-md-4">
-        <h3>{‌{ item.item_name }}</h3>
-        <h5>{‌{ item.item_desc }}</h5>
-        <h6>${‌{ item.item_price }}</h6>
-        Added By:
-        <h6>{‌{ item.user_name }}</h6>
-
-        <!--delete this later-->
-
-        <!---->
-      </div>
-      <div class="col-md-2">
-        <a href="{% url 'food:detail' item.id %}" class="btn btn-success"
-          >Details</a
-        >
-      </div>
+    {% block body %} {% for item in item_list %}
+    <div class="container-lg align-items-center m-4">
+      {% include "food/item_card.html" with show_details_button=True %}
     </div>
-    <div class="row">
-      <div class="offset-md-2 col-md-8">
-        <hr />
-      </div>
-    </div>
-
-    {% endfor %} {% endblock %} this is the old code
-
-    <ul>
-      <li>
-        <a href=""> {‌{ item.id }} -- {‌{ item.item_name }}</a>
-      </li>
-    </ul>
-    {% endcomment %}
+    {% endfor %} {% endblock %}
   </body>
 </html>

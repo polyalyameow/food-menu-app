@@ -1,0 +1,11 @@
+{% extends "food/base.html" %} {% block body %}
+<form method="POST">
+  {% csrf_token %}
+  <div class="container mt-4">
+    <h4>Are tou sure that you want to delete {{ item.item_name }}</h4>
+    <button class="btn btn-outline-primary btn-sm" type="submit">
+      Confirm
+    </button>
+  </div>
+</form>
+{% endblock%}

@@ -1,0 +1,31 @@
+<!-- food/item_card.html -->
+<div class="row align-items-center mb-4">
+  <!-- Image Column -->
+  <div class="col-md-3">
+    <img
+      class="img-fluid rounded shadow-sm"
+      style="object-fit: cover; height: 200px; width: 100%"
+      src="{{ item.item_image }}"
+      alt="{{ item.item_name }}"
+    />
+  </div>
+  <!-- Text Column -->
+  <div class="col-md-7">
+    <h3 class="text-primary">{{ item.item_name }}</h3>
+    <p class="text-muted mb-1">{{ item.item_desc }}</p>
+    <h6 class="text-success">$ {{ item.item_price }}</h6>
+    <p class="text-secondary">
+      Added By: <strong>{{ item.user_name }}</strong>
+    </p>
+    {% if show_details_button %}
+    <div class="mt-auto">
+      <a
+        href="{% url 'food:detail' item.id %}"
+        class="btn btn-outline-primary btn-sm"
+        >Details</a
+      >
+    </div>
+    {% endif %}
+  </div>
+</div>
+<hr class="border-light" />

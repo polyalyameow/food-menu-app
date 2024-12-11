@@ -1,3 +1,10 @@
-<h1>{{ item.item_name }}</h1>
-<h2>{{ item.item_desc }}</h2>
-<h2>{{ item.item_price }}</h2>
+{% extends "food/base.html" %} {% block body %}
+<div class="container mt-4">
+  {% include "food/item_card.html" with item=item show_details_button=False %}
+  <div class="mt-auto">
+    <a href="{% url 'food:delete_item' item.id %}" class="btn btn-danger btn-sm"
+      >Delete</a
+    >
+  </div>
+</div>
+{% endblock %}
